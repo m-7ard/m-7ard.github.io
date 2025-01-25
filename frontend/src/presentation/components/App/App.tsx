@@ -1,10 +1,9 @@
+import { Outlet } from "@tanstack/react-router";
 import GlobalDialogManager from "../other/Dialog/GlobalDialog.Manager";
 import CoverImage from "../reusables/CoverImage";
 import Divider from "../reusables/Divider";
 import MixinButton from "../reusables/MixinButton";
 import AppHeader from "./App.Header";
-import AppOutlet from "./App.Outlet";
-import AppRoutingProvider from "./App.Routing.Provider";
 
 function MobileSidebar() {
     return (
@@ -61,23 +60,21 @@ function FullSidebar() {
 
 function App() {
     return (
-        <AppRoutingProvider>
-            <GlobalDialogManager href={""}>
-                <AppHeader />
-                <Divider />
-                <main className="max-h-full overflow-hidden flex flex-row grow">
-                    <section className="max-[640px]:block hidden">
-                        <MobileSidebar />
-                    </section>
-                    <section className=" max-[640px]:hidden">
-                        <FullSidebar />
-                    </section>
-                    <section className="overflow-auto flex flex-col max-h-full grow basis-2/3 bg-zinc-50">
-                        <AppOutlet />
-                    </section>
-                </main>
-            </GlobalDialogManager>
-        </AppRoutingProvider>
+        <GlobalDialogManager href={""}>
+            <AppHeader />
+            <Divider />
+            <main className="max-h-full overflow-hidden flex flex-row grow">
+                <section className="max-[640px]:block hidden">
+                    <MobileSidebar />
+                </section>
+                <section className=" max-[640px]:hidden">
+                    <FullSidebar />
+                </section>
+                <section className="overflow-auto flex flex-col max-h-full grow basis-2/3 bg-zinc-50">
+                    <Outlet />
+                </section>
+            </main>
+        </GlobalDialogManager>
     );
 }
 

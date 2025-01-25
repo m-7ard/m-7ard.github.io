@@ -1,4 +1,3 @@
-import Divider from "../../reusables/Divider";
 import AboutMeCard from "./AboutMePage.AboutMeCard";
 
 function AboutMePage() {
@@ -7,10 +6,8 @@ function AboutMePage() {
             <section className="p-6 flex flex-col gap-6">
                 <div className="text-2xl font-bold">About Me</div>
                 <div>
-                    <mark className="bg-zinc-200 p-0.5">
-                        I am a dedicated and self-driven Full-Stack Developer from Spain with a strong foundation in modern web development and software engineering principles. My
-                        expertise spans a wide range of technologies, design paradigms, and best practices, making me a versatile and effective contributor to any development team.
-                    </mark>
+                    I am a dedicated and self-driven Full-Stack Developer from Spain with a strong foundation in modern web development and software engineering principles. My
+                    expertise spans a wide range of technologies, design paradigms, and best practices, making me a versatile and effective contributor to any development team.
                 </div>
             </section>
             <section className="p-6 flex flex-col gap-6">

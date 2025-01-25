@@ -3,10 +3,12 @@ import { useAbstractTooltipContext } from "../other/Tooltip/Abstract/AbstractToo
 import MixinButton from "../reusables/MixinButton";
 import MixinContentGrid from "../reusables/MixinContentGrid";
 import MixinPanel, { MixinPanelSection } from "../reusables/MixinPanel";
-import { useAppRoutingContext } from "./App.Routing.Context";
+import useRouterLocationEq from "../../hooks/useRouterLocationEq";
+import useRouterNavigate from "../../hooks/useRouterNavigate";
 
 function AppHeader() {
-    const { route, navigate } = useAppRoutingContext();
+    const locationEq = useRouterLocationEq();
+    const navigate = useRouterNavigate();
 
     return (
         <MixinContentGrid className="bg-white shrink-0 token-nav-section flex flex-row justify-between items-center p-6 gap-3">
@@ -16,9 +18,10 @@ function AppHeader() {
                     theme: "theme-Sbutton-generic-black",
                 }}
                 hasShadow
-                onClick={() => navigate("ABOUT_ME")}
+                onClick={() => navigate((routes) => routes.ABOUT_ME)}
             >
-                m-7ard.github.io
+                <div>#</div>
+                <div>m-7ard.github.io</div>
             </MixinButton>
             <div className="min-[520px]:flex flex-row gap-3 hidden">
                 <MixinButton
@@ -27,8 +30,8 @@ function AppHeader() {
                         theme: "theme-Sbutton-generic-white",
                     }}
                     hasShadow
-                    onClick={() => navigate("ABOUT_ME")}
-                    active={route === "ABOUT_ME"}
+                    onClick={() => navigate((routes) => routes.ABOUT_ME)}
+                    active={locationEq((routes) => routes.ABOUT_ME)}
                 >
                     About Me
                 </MixinButton>
@@ -38,8 +41,8 @@ function AppHeader() {
                         theme: "theme-Sbutton-generic-white",
                     }}
                     hasShadow
-                    onClick={() => navigate("SKILLSET")}
-                    active={route === "SKILLSET"}
+                    onClick={() => navigate((routes) => routes.SKILLSET)}
+                    active={locationEq((routes) => routes.SKILLSET)}
                 >
                     Skillset
                 </MixinButton>
@@ -49,8 +52,8 @@ function AppHeader() {
                         theme: "theme-Sbutton-generic-white",
                     }}
                     hasShadow
-                    onClick={() => navigate("PORTFOLIO")}
-                    active={route === "PORTFOLIO"}
+                    onClick={() => navigate((routes) => routes.PORTFOLIO)}
+                    active={locationEq((routes) => routes.PORTFOLIO)}
                 >
                     Portfolio
                 </MixinButton>
@@ -84,7 +87,8 @@ function AppHeader() {
 
 function Menu() {
     const { onClose } = useAbstractTooltipContext();
-    const { route, navigate } = useAppRoutingContext();
+    const locationEq = useRouterLocationEq();
+    const navigate = useRouterNavigate();
 
     return (
         <AbstractTooltipDefaultPanel className={`z-10 fixed mt-1`}>
@@ -106,10 +110,10 @@ function Menu() {
                         className="justify-center"
                         hasShadow
                         onClick={() => {
-                            navigate("ABOUT_ME");
+                            navigate((routes) => routes.ABOUT_ME);
                             onClose();
                         }}
-                        active={route === "ABOUT_ME"}
+                        active={locationEq((routes) => routes.ABOUT_ME)}
                     >
                         About Me
                     </MixinButton>
@@ -121,10 +125,10 @@ function Menu() {
                         className="justify-center"
                         hasShadow
                         onClick={() => {
-                            navigate("SKILLSET");
+                            navigate((routes) => routes.SKILLSET);
                             onClose();
                         }}
-                        active={route === "SKILLSET"}
+                        active={locationEq((routes) => routes.SKILLSET)}
                     >
                         Skillset
                     </MixinButton>
@@ -136,10 +140,10 @@ function Menu() {
                         className="justify-center"
                         hasShadow
                         onClick={() => {
-                            navigate("PORTFOLIO");
+                            navigate((routes) => routes.PORTFOLIO);
                             onClose();
                         }}
-                        active={route === "PORTFOLIO"}
+                        active={locationEq((routes) => routes.PORTFOLIO)}
                     >
                         Portfolio
                     </MixinButton>

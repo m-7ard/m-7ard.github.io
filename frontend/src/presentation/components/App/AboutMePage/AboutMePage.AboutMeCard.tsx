@@ -22,10 +22,7 @@ function AboutMeCard({ title, description, keywords = [] }: AboutMeCardProps) {
             <MixinCardSection className="bg-neutral-800 text-white">
                 <div className="text-lg">{title}</div>
             </MixinCardSection>
-            <MixinCardSection>
-                <mark className="bg-zinc-200 p-0.5">{description}</mark>
-            </MixinCardSection>
-
+            <MixinCardSection>{description}</MixinCardSection>
             <MixinCardSection className="flex flex-row gap-1 flex-wrap">
                 {keywords.map((keyword) => (
                     <MixinButton
