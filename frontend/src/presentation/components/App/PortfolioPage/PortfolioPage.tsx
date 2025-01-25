@@ -1,9 +1,9 @@
-import orderDomain from "../../../code-examples/OrderDomain";
 import GlobalDialog from "../../other/Dialog/GlobalDialog";
 import { useGlobalDialogPanelContext } from "../../other/Dialog/GlobalDialog.Panel.Context";
 import CodeHighlighter from "../../reusables/CodeHighlighter";
 import Divider from "../../reusables/Divider";
 import MixinButton from "../../reusables/MixinButton";
+import MixinCard, { MixinCardSection } from "../../reusables/MixinCard";
 import MixinPanel, { MixinPanelSection } from "../../reusables/MixinPanel";
 
 function Tech(props: { title: string }) {
@@ -11,7 +11,7 @@ function Tech(props: { title: string }) {
         <MixinButton
             options={{
                 size: "mixin-Sbutton-sm",
-                theme: "theme-Sbutton-generic-yellow",
+                theme: "theme-Sbutton-generic-white",
             }}
             className="grow justify-center"
         >
@@ -20,40 +20,71 @@ function Tech(props: { title: string }) {
     );
 }
 
+function TechGroup(props: { title: string; sections: Array<{ title: string; buttons: string[] }> }) {
+    const { title, sections } = props;
+
+    return (
+        <MixinCard
+            options={{
+                size: "mixin-Scard-base",
+                theme: "theme-Scard-generic-white",
+            }}
+            hasShadow
+            hasDivide
+            hasBorder
+        >
+            <MixinCardSection className="bg-neutral-800 text-white">
+                <div className="text-lg">{title}</div>
+            </MixinCardSection>
+            {sections.map(({ title, buttons }) => (
+                <MixinCardSection key={title} className="flex flex-col gap-1">
+                    <div className="text-base font-bold">
+                        {title}
+                    </div>
+                    <div className="flex flex-row grow gap-1 flex-wrap">
+                        {buttons.map((text) => (
+                            <Tech title={text} key={text} />
+                        ))}
+                    </div>
+                </MixinCardSection>
+            ))}
+        </MixinCard>
+    );
+}
+
 function CodeExamplePanel(props: { title: string; code: string }) {
     const { onClose } = useGlobalDialogPanelContext();
 
     return (
         <MixinPanel
-        options={{
-            size: "mixin-panel-base",
-            theme: "theme-panel-generic-white",
-        }}
-        hasBorder
-        hasShadow
-        className="flex flex-col"
-    >
-        <MixinPanelSection className="flex flex-row justify-between items-center shrink-0">
-            <div className="token-base-title">{props.title}</div>
-            <MixinButton
-                options={{
-                    size: "mixin-Sbutton-sm",
-                    theme: "theme-Sbutton-generic-white",
-                }}
-                onClick={onClose}
-                type="button"
-                hasShadow
-            >
-                Close
-            </MixinButton>
-        </MixinPanelSection>
-        <Divider />
-        <MixinPanelSection className="flex flex-col overflow-auto">
-            <CodeHighlighter code={props.code} />
-
-        </MixinPanelSection>
-    </MixinPanel>
-);
+            options={{
+                size: "mixin-panel-base",
+                theme: "theme-panel-generic-white",
+            }}
+            hasBorder
+            hasShadow
+            className="flex flex-col"
+        >
+            <MixinPanelSection className="flex flex-row justify-between items-center shrink-0">
+                <div className="token-base-title">{props.title}</div>
+                <MixinButton
+                    options={{
+                        size: "mixin-Sbutton-sm",
+                        theme: "theme-Sbutton-generic-white",
+                    }}
+                    onClick={onClose}
+                    type="button"
+                    hasShadow
+                >
+                    Close
+                </MixinButton>
+            </MixinPanelSection>
+            <Divider />
+            <MixinPanelSection className="flex flex-col overflow-auto">
+                <CodeHighlighter code={props.code} />
+            </MixinPanelSection>
+        </MixinPanel>
+    );
 }
 
 function CodeExampleDialog(props: { title: string; code: string }) {
@@ -72,87 +103,48 @@ function CodeExampleDialog(props: { title: string; code: string }) {
 }
 
 function PortfolioPage() {
+    const techStackSections = [
+        {
+            title: "Frontend",
+            buttons: ["React", "Tanstack Router", "React Query", "Tailwind"],
+        },
+        {
+            title: "Backend",
+            buttons: [".Net Core Web API", "MSSQL & SQLite", "EF Core", "xUnit"],
+        },
+        {
+            title: "DevOps & Deployment",
+            buttons: ["Controller / Presenter Pattern", "Shared API models"],
+        },
+    ];
+
+    const technicalDetailsSections = [
+        {
+            title: "Frontend",
+            buttons: ["Controller / Presenter Pattern", "Shared API models"],
+        },
+        {
+            title: "Backend",
+            buttons: ["Layered Architecture", "Domain Driven Design", "Value Objects", "Resusable Application Validation"],
+        },
+    ];
+
     return (
-        <div className="overflow-hidden">
-            <section className="p-3 token-default-flex-col">
-                <div>
-                    <div className="token-default-title">Order Display System</div>
-                    <a className="token-base-text text-blue-600 hover:underline" href="https://github.com/m-7ard/Dotnet-React-Order-Display-System-">
-                        https://github.com/m-7ard/Dotnet-React-Order-Display-System-
-                    </a>
-                </div>
-                <Divider />
-                <div className="p-3 border token-default-border-color token-default-flex-col">
-                    <div className="token-base-text font-bold">Features</div>
-                    <Divider />
-                    <ul>
-                        <li className="token-base-text">&bull; Product Management</li>
-                        <li className="token-base-text">&bull; Automatic Creation of Product Histories / Archives</li>
-                        <li className="token-base-text">&bull; Order Management</li>
-                        <li className="token-base-text">&bull; Product Image Upload and Management</li>
-                        <li className="token-base-text">&bull; Domains & Value Objects to Enforce Business Rules</li>
-                        <li className="token-base-text">&bull; Injectable Validators to Reuse Application Logic</li>
-                        <li className="token-base-text">&bull; Backend Integration Tests</li>
-                        <li className="token-base-text">&bull; Backend Application Layer Unit Tests</li>
-                        <li className="token-base-text">&bull; Frontend Validation</li>
-                        <li className="token-base-text">&bull; Frontend Request Error Handling</li>
-                    </ul>
-                </div>
-                <div className="p-3 border token-default-border-color token-default-flex-col">
-                    <div className="token-base-text font-bold">Tech Stack</div>
-                    <Divider />
-                    <div>
-                        <div className="token-base-text font-bold">Frontend</div>
-                        <div className="flex flex-row gap-1 flex-wrap">
-                            <Tech title="React" />
-                            <Tech title="Tanstack Router" />
-                            <Tech title="React Query" />
-                            <Tech title="Tailwind" />
-                        </div>
-                    </div>
-                    <div>
-                        <div className="token-base-text font-bold">Backend</div>
-                        <div className="flex flex-row gap-1 flex-wrap">
-                            <Tech title=".Net Core Web API" />
-                            <Tech title="MSSQL & SQLite" />
-                            <Tech title="EF Core" />
-                            <Tech title="xUnit" />
-                        </div>
-                    </div>
-                    <div>
-                        <div className="token-base-text font-bold">DevOps & Deployment</div>
-                        <div className="flex flex-row gap-1 flex-wrap">
-                            <Tech title="Docker" />
-                            <Tech title="Git" />
-                        </div>
-                    </div>
-                </div>
-                <div className="p-3 border token-default-border-color token-default-flex-col">
-                    <div className="token-base-text font-bold">Technical Details</div>
-                    <Divider />
-                    <div>
-                        <div className="token-base-text font-bold">Frontend</div>
-                        <div className="flex flex-row gap-1 flex-wrap">
-                            <Tech title="Controller / Presenter Pattern" />
-                            <Tech title="Shared API models" />
-                        </div>
-                    </div>
-                    <div>
-                        <div className="token-base-text font-bold">Backend</div>
-                        <div className="flex flex-row gap-1 flex-wrap">
-                            <Tech title="Layered Architecture" />
-                            <Tech title="Domain Driven Design" />
-                            <Tech title="Value Objects" />
-                            <Tech title="Resusable Application Validation" />
-                        </div>
-                    </div>
-                </div>
-                <div className="p-3 border token-default-border-color token-default-flex-col max-w-full">
-                    <div className="token-base-text font-bold">Code Examples</div>
-                    <Divider />
-                    <CodeExampleDialog title={"Order Domain"} code={orderDomain} />
-                </div>
-            </section>
+        <div className="flex flex-col grow">
+            <div className="flex flex-col gap-6 p-6">
+                <section>
+                    <div className="text-2xl font-bold">Order Display System</div>
+                </section>
+                <TechGroup title="Tech Stack" sections={techStackSections} />
+                <TechGroup title="Technical Details" sections={technicalDetailsSections} />
+            </div>
+            <div className="flex flex-col gap-6 p-6">
+                <section>
+                    <div className="text-2xl font-bold ">Soccer Team, Player & Match Manager</div>
+                </section>
+                <TechGroup title="Tech Stack" sections={techStackSections} />
+                <TechGroup title="Technical Details" sections={technicalDetailsSections} />
+            </div>
         </div>
     );
 }

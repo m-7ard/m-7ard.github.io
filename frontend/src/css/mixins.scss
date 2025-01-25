@@ -16,11 +16,11 @@
     }
 
     .mixin-Sbutton-sm {
-        @apply gap-2 px-4 py-1.5 text-sm leading-none rounded-lg;
+        @apply gap-2 px-4 py-1.5 text-sm leading-none rounded;
     }
 
     .mixin-Sbutton-base {
-        @apply gap-2 px-4 py-1 text-base rounded-lg;
+        @apply gap-2 px-4 py-1 text-base rounded;
     }
 
     .mixin-textarea-any {
@@ -85,7 +85,7 @@
     }
 
     .mixin-panel-base {
-        @apply max-w-72 sm:max-w-prose rounded-lg;
+        @apply max-w-72 sm:max-w-prose rounded;
 
         > [data-role="panel-section"] {
             @apply p-4;
@@ -124,7 +124,7 @@
     }
 
     .mixin-Scard-like {
-        @apply rounded-lg overflow-hidden;
+        @apply rounded overflow-hidden;
     }
 
     .mixin-Scard-base {
@@ -164,7 +164,7 @@
     }
 
     .mixin-select-base {
-        @apply rounded-lg token-default-shadow max-h-[140px];
+        @apply rounded token-default-shadow max-h-[140px];
 
         > [data-role="option"] {
             @apply gap-2 px-4 py-1 text-base;
