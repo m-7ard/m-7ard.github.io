@@ -4,13 +4,33 @@ import CoverImage from "../reusables/CoverImage";
 import Divider from "../reusables/Divider";
 import MixinButton from "../reusables/MixinButton";
 import AppHeader from "./App.Header";
+import GlobalDialog from "../other/Dialog/GlobalDialog";
+
+function FullSidebarAsPanel() {
+    return (
+        <div className="fixed top-0 left-0 bottom-0">
+            <div className="bg-white h-full">
+                <FullSidebar />
+            </div>
+        </div>
+    );
+}
 
 function MobileSidebar() {
     return (
         <div className="token-default-flex-col px-3 py-6 border-r flex flex-col gap-6">
-            <CoverImage
-                className="min-w-8 aspect-square rounded-lg overflow-hidden hover:bg-yellow-200 mixin-Sbutton-like"
-                src="https://static-00.iconduck.com/assets.00/circle-information-icon-256x256-iur97f49.png"
+            <GlobalDialog
+                Trigger={({ onToggle }) => (
+                    <div onClick={onToggle}>
+                        <CoverImage
+                            className="min-w-8 aspect-square rounded-lg overflow-hidden hover:bg-yellow-200 mixin-Sbutton-like"
+                            src="https://static-00.iconduck.com/assets.00/circle-information-icon-256x256-iur97f49.png"
+                        />
+                    </div>
+                )}
+                Panel={FullSidebarAsPanel}
+                panelProps={{}}
+                zIndex={20}
             />
             <CoverImage className="min-w-8 aspect-square rounded-lg overflow-hidden" src="https://avatars.githubusercontent.com/u/103217142?v=4" />
             <a href="https://github.com/m-7ard" className="min-w-8 aspect-square rounded-lg overflow-hidden">
@@ -25,7 +45,7 @@ function MobileSidebar() {
 
 function FullSidebar() {
     return (
-        <div className="p-6 border-r flex flex-col gap-6 w-[250px]">
+        <div className="p-6 border-r flex flex-col gap-6 w-[250px] bg-white h-full">
             <div className="p-3 bg-gray-200 rounded">
                 <CoverImage
                     className="min-w-8 w-[140px] aspect-square rounded-lg overflow-hidden hover:bg-yellow-200 mixin-Sbutton-like mx-auto"
