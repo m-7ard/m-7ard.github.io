@@ -20,7 +20,6 @@ function AppHeader() {
                 hasShadow
                 onClick={() => navigate((routes) => routes.ABOUT_ME)}
             >
-                <div>#</div>
                 <div>m-7ard.github.io</div>
             </MixinButton>
             <div className="min-[520px]:flex flex-row gap-3 hidden">

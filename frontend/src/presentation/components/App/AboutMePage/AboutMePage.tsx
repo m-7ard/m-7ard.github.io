@@ -32,7 +32,7 @@ function AboutMePage() {
                     />
                     <AboutMeCard
                         title="Testing & Quality Assurance"
-                        description="Developed and implemented comprehensive integration and unit tests to ensure reliability and maintainability using testing frameworks for C# such as xUnit and for ts/js such as Jest. Emphasize clean, maintainable code
+                        description="Developed and implemented comprehensive integration and unit tests to ensure reliability and maintainability using testing frameworks for C# such as xUnit and for Typescript / Javascript such as Jest. Emphasize clean, maintainable code
                                 that adheres to SOLID principles and industry best practices."
                         keywords={["Unit Testing", "Integration Testing", "xUnit", "Jest"]}
                     />

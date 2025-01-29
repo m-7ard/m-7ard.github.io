@@ -1,4 +1,4 @@
-import { act, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 interface IMixinButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     options: {

@@ -1,9 +1,5 @@
-import GlobalDialog from "../../other/Dialog/GlobalDialog";
-import { useGlobalDialogPanelContext } from "../../other/Dialog/GlobalDialog.Panel.Context";
-import CodeHighlighter from "../../reusables/CodeHighlighter";
 import Divider from "../../reusables/Divider";
 import MixinButton from "../../reusables/MixinButton";
-import MixinPanel, { MixinPanelSection } from "../../reusables/MixinPanel";
 
 function Tech(props: { title: string }) {
     return (
@@ -42,7 +38,7 @@ function TechGroup(props: { title: string; sections: Array<{ title: string; butt
         </div>
     );
 }
-
+/*
 function CodeExamplePanel(props: { title: string; code: string }) {
     const { onClose } = useGlobalDialogPanelContext();
 
@@ -92,7 +88,7 @@ function CodeExampleDialog(props: { title: string; code: string }) {
         />
     );
 }
-
+*/
 function PortfolioPage() {
     const ODS_TechStackSections = [
         {
@@ -105,29 +101,29 @@ function PortfolioPage() {
         },
         {
             title: "DevOps & Deployment",
-            buttons: ["Controller / Presenter Pattern", "Shared API models"],
+            buttons: ["Docker", "Git"],
         },
     ];
 
     const ODS_TechnicalDetailsSections = [
         {
             title: "Frontend",
-            buttons: ["Controller / Presenter Pattern", "Shared API models"],
+            buttons: ["Controller / Presenter Pattern", "Global Error Handling", "Shared API Models"],
         },
         {
             title: "Backend",
-            buttons: ["Layered Architecture", "Domain Driven Design", "Value Objects", "Resusable Application Validation"],
+            buttons: ["Layered Architecture", "Domain Driven Design", "Value Objects", "Resusable Application Validation", "Unit Tests", "Integration Tests"],
         },
     ];
 
     const Soccer_TechStackSections = [
         {
             title: "Frontend",
-            buttons: ["Angular", "Tailwind"],
+            buttons: ["Angular", "RxJs", "Tailwind"],
         },
         {
             title: "Backend",
-            buttons: ["Node.js", "MySql & SQLite", "Jest"],
+            buttons: ["Node.js", "MySql", "Jest"],
         },
         {
             title: "DevOps & Deployment",
@@ -138,11 +134,11 @@ function PortfolioPage() {
     const Soccer_TechnicalDetailsSections = [
         {
             title: "Frontend",
-            buttons: ["Data Access Layer", "HTTP Interceptors", "Route Guards", "Shared API models"],
+            buttons: ["Data Access Layer", "HTTP Interceptors", "Route Guards", "Global Error Handling", "Shared API Models"],
         },
         {
             title: "Backend",
-            buttons: ["Layered Architecture", "Domain Driven Design", "Value Objects", "Resusable Application Validation"],
+            buttons: ["Layered Architecture", "Domain Driven Design", "Value Objects", "Resusable Application Validation", "Unit Tests", "Integration Tests"],
         },
     ];
 
@@ -151,16 +147,18 @@ function PortfolioPage() {
             <div className="flex flex-col p-6 gap-6">
                 <section className="flex flex-col gap-2">
                     <div className="text-2xl font-bold">Order Display System</div>
-                    <MixinButton
-                        options={{
-                            size: "mixin-Sbutton-sm",
-                            theme: "theme-Sbutton-generic-black",
-                        }}
-                        className="w-fit"
-                    >
-                        <div>#</div>
-                        <div>Github</div>
-                    </MixinButton>
+                    <a href="https://github.com/m-7ard/Dotnet-React-Order-Display-System-" className="w-fit">
+                        <MixinButton
+                            options={{
+                                size: "mixin-Sbutton-sm",
+                                theme: "theme-Sbutton-generic-black",
+                            }}
+                            className="w-fit"
+                        >
+                            <div>#</div>
+                            <div>Github</div>
+                        </MixinButton>
+                    </a>
                 </section>
                 <Divider />
                 <div className="text-base">
@@ -174,18 +172,25 @@ function PortfolioPage() {
             <div className="flex flex-col gap-6 p-6">
                 <section className="flex flex-col gap-2">
                     <div className="text-2xl font-bold ">Soccer Team, Player & Match Manager</div>
-                    <MixinButton
-                        options={{
-                            size: "mixin-Sbutton-sm",
-                            theme: "theme-Sbutton-generic-black",
-                        }}
-                        className="w-fit"
-                    >
-                        <div>#</div>
-                        <div>Github</div>
-                    </MixinButton>
+                    <a href="https://github.com/m-7ard/Angular-Node-Soccer-Manager" className="w-fit">
+                        <MixinButton
+                            options={{
+                                size: "mixin-Sbutton-sm",
+                                theme: "theme-Sbutton-generic-black",
+                            }}
+                            className="w-fit"
+                        >
+                            <div>#</div>
+                            <div>Github</div>
+                        </MixinButton>
+                    </a>
                 </section>
                 <Divider />
+                <div className="text-base">
+                    The <span className="font-bold">Soccer Team, Player & Match Manager</span> is a full-stack application designed for managing soccer Teams, Players, Matches and
+                    Goals. It combines a Node.js backend which features its own depndency injection system together with Actions as endpoints; it uses an Angular frontend, making
+                    full use of Angular's features such as interceptors and global error handlers, dynamic components, RxJs integration & more.
+                </div>
                 <TechGroup title="Tech Stack" sections={Soccer_TechStackSections} />
                 <TechGroup title="Technical Details" sections={Soccer_TechnicalDetailsSections} />
             </div>

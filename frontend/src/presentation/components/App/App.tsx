@@ -13,8 +13,12 @@ function MobileSidebar() {
                 src="https://static-00.iconduck.com/assets.00/circle-information-icon-256x256-iur97f49.png"
             />
             <CoverImage className="min-w-8 aspect-square rounded-lg overflow-hidden" src="https://avatars.githubusercontent.com/u/103217142?v=4" />
-            <CoverImage className="min-w-8 aspect-square rounded-lg overflow-hidden" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
-            <CoverImage className="min-w-8 aspect-square rounded-lg overflow-hidden" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+            <a href="https://github.com/m-7ard" className="min-w-8 aspect-square rounded-lg overflow-hidden">
+                <CoverImage className="w-full h-full" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
+            </a>
+            <a href="https://www.linkedin.com/in/maxim-s-90164b155/" className="min-w-8 aspect-square rounded-lg overflow-hidden">
+                <CoverImage className="w-full h-full" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
+            </a>
         </div>
     );
 }
@@ -33,26 +37,30 @@ function FullSidebar() {
                 <div className="text-lg">Fullstack Developer</div>
             </div>
             <div className="flex flex-col gap-1">
-                <MixinButton
-                    options={{
-                        size: "mixin-Sbutton-base",
-                        theme: "theme-Sbutton-generic-black",
-                    }}
-                    hasShadow
-                    className="justify-center"
-                >
-                    Github
-                </MixinButton>
-                <MixinButton
-                    options={{
-                        size: "mixin-Sbutton-base",
-                        theme: "theme-Sbutton-generic-black",
-                    }}
-                    hasShadow
-                    className="justify-center"
-                >
-                    LinkedIn
-                </MixinButton>
+                <a href="https://github.com/m-7ard">
+                    <MixinButton
+                        options={{
+                            size: "mixin-Sbutton-base",
+                            theme: "theme-Sbutton-generic-black",
+                        }}
+                        hasShadow
+                        className="justify-center w-full"
+                    >
+                        Github
+                    </MixinButton>
+                </a>
+                <a href="https://www.linkedin.com/in/maxim-s-90164b155/">
+                    <MixinButton
+                        options={{
+                            size: "mixin-Sbutton-base",
+                            theme: "theme-Sbutton-generic-black",
+                        }}
+                        hasShadow
+                        className="justify-center w-full"
+                    >
+                        LinkedIn
+                    </MixinButton>
+                </a>
             </div>
         </div>
     );
