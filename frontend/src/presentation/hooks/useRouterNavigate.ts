@@ -9,7 +9,7 @@ function useRouterNavigate() {
 
     const navigateFn = useCallback(
         (fn: (routes: TRoutes) => TRoutes[keyof TRoutes]) => {
-            return navigate({ to: fn(ROUTE_DATA) });
+            return navigate({ to: fn(ROUTE_DATA), mask: { to: "/" } });
         },
         [navigate],
     );
