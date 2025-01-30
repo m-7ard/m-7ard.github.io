@@ -1,4 +1,4 @@
-import React, { ElementType, FunctionComponent, useCallback, useEffect, useState } from "react";
+import React, { ElementType, FunctionComponent, PropsWithChildren, useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import useFixedPositioning from "../../../../hooks/useFixedPositioning";
 import PolymorphicProps from "../../../../types/PolymorphicProps";
@@ -10,7 +10,7 @@ const defaultElement = "div";
 
 export default function AbstractTooltip(props: {
     Trigger: FunctionComponent<{ open: boolean; onToggle: () => void }>;
-    Panel: React.ReactNode;
+    Panel: (props: { onClose: () => void }) => React.ReactNode;
     positioning: ITooltipPositioning;
 }) {
     const { Trigger, Panel, positioning } = props;
@@ -21,7 +21,7 @@ export default function AbstractTooltip(props: {
         <AbstractTooltipContext.Provider value={{ onClose: onClose }}>
             <TooltipProvider positioning={positioning}>
                 <Trigger open={open} onToggle={() => setOpen(!open)} />
-                {open && createPortal(Panel, document.body)}
+                {open && createPortal(<Panel onClose={onClose} />, document.body)}
             </TooltipProvider>
         </AbstractTooltipContext.Provider>
     );
@@ -31,14 +31,18 @@ export default function AbstractTooltip(props: {
 // Panel
 //
 
-type AbstractTooltipPanelProps<E extends ElementType> = PolymorphicProps<E> & {};
+type THostElementProps = React.JSX.IntrinsicAttributes & PropsWithChildren<{
+    ref: React.Dispatch<React.SetStateAction<HTMLElement | null>>;
+}>;
 
-export function AbstractTooltipDefaultPanel<E extends ElementType>(props: AbstractTooltipPanelProps<E>) {
-    const { children, as, ...rest } = props;
-    const Component = as ?? defaultElement;
+type AbstractTooltipPanelProps = {
+    render: (tooltipPanelProps: THostElementProps) => React.ReactNode;
+};
 
+export function AbstractTooltipDefaultPanel(props: PropsWithChildren<AbstractTooltipPanelProps>) {
+    const { children, render } = props;
     const { onClose } = useAbstractTooltipContext();
-        
+
     //
     //
     // Positioning
@@ -49,7 +53,7 @@ export function AbstractTooltipDefaultPanel<E extends ElementType>(props: Abstra
     } = useTooltipContext();
 
     const { positionFlag } = useFixedPositioning({ positioning, targetElement, referenceElement });
-    
+
     //
     //
     // On outside click
@@ -69,11 +73,9 @@ export function AbstractTooltipDefaultPanel<E extends ElementType>(props: Abstra
         return () => window.removeEventListener("click", closeOnOutsideClick);
     }, [closeOnOutsideClick, positionFlag]);
 
-    return (
-        <Component {...rest} ref={setTargetElement}>
-            {children}
-        </Component>
-    );
+    const hostElementProps: THostElementProps = { ref: setTargetElement };
+
+    return render({ children, ...hostElementProps });
 }
 
 //
