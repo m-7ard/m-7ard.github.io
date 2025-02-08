@@ -15,8 +15,8 @@ function AboutMePage() {
                 <div className="flex flex-row gap-6 flex-wrap items-start">
                     <AboutMeCard
                         title="Backend Development"
-                        description="Proficient in .NET Core (Web API, MVC), Node.js, and Django REST Framework. Skilled in applying Domain-Driven Design (DDD) principles, using domains and value objects to enforce business rules. Experienced with software architecture patterns, including layered architecture, repository patterns, and CQRS."
-                        keywords={[".NET Core Web API", ".NET Core MVC", "Node.js", "Django", "Django Rest", "Domain Driven Design", "Design Patterns"]}
+                        description="Proficient in .NET Core (Web API, MVC), Node.js, and Django REST Framework."
+                        keywords={[".NET Core Web API", ".NET Core MVC", "Node.js", "Django", "Django Rest"]}
                     />
                     <AboutMeCard
                         title="Frontend Development"
@@ -32,9 +32,13 @@ function AboutMePage() {
                     />
                     <AboutMeCard
                         title="Testing & Quality Assurance"
-                        description="Developed and implemented comprehensive integration and unit tests to ensure reliability and maintainability using testing frameworks for C# such as xUnit and for Typescript / Javascript such as Jest. Emphasize clean, maintainable code
-                                that adheres to SOLID principles and industry best practices."
-                        keywords={["Unit Testing", "Integration Testing", "xUnit", "Jest"]}
+                        description="Developed and implemented comprehensive integration and unit tests to ensure reliability and maintainability using testing frameworks for C# such as xUnit and for Typescript / Javascript such as Jest. Experience in mocking dependencies through libraries such as Moq and adhering to IoC principles."
+                        keywords={["Unit Testing", "Integration Testing", "Mocking", "xUnit", "Jest", "Moq"]}
+                    />
+                    <AboutMeCard
+                        title="Architecture"
+                        description="Designed & implemented applications using state-of-the-art methodologies such as Domain Driven Design (DDD), Hexagonal / Onion Architecture, SOLID principles, KISS, DRY. Implemented data patterns such as CQRS and repositories, dependency injection contains / service locators both and without external frameworks. Has also created common interfaces for common frontend issues, such as routers and loaders, and common interfaces for database cross-compatability."
+                        keywords={["Domain Driven Design", "Onion Architecture", "Hexagonal Architecture", "SOLID", "CQRS", "Data Patterns", "Dependency Injection", "Common Interfaces"]}
                     />
                     <AboutMeCard
                         title="DevOps & Deployment"
@@ -57,8 +61,8 @@ function AboutMePage() {
                     />
                     <AboutMeCard
                         title="Bottom Line"
-                        description="I am driven by a passion for continuous learning and a commitment to delivering high-quality solutions that align with business goals."
-                        keywords={["Passion", "Continuously Learning", "Committed to High Quality"]}
+                        description="I am driven by a passion for continuous learning and a commitment to delivering high-quality solutions that align with business goals. Constantly seeking out new ideas to improve at my craft."
+                        keywords={["Continuously Learning", "Growth Mindset", "Committed to High Quality", "Open to New and Diverse Ideas"]}
                     />
                 </div>
             </section>

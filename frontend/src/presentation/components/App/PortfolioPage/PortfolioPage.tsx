@@ -38,66 +38,16 @@ function TechGroup(props: { title: string; sections: Array<{ title: string; butt
         </div>
     );
 }
-/*
-function CodeExamplePanel(props: { title: string; code: string }) {
-    const { onClose } = useGlobalDialogPanelContext();
-
-    return (
-        <MixinPanel
-            options={{
-                size: "mixin-panel-base",
-                theme: "theme-panel-generic-white",
-            }}
-            hasBorder
-            hasShadow
-            className="flex flex-col"
-        >
-            <MixinPanelSection className="flex flex-row justify-between items-center shrink-0">
-                <div className="token-base-title">{props.title}</div>
-                <MixinButton
-                    options={{
-                        size: "mixin-Sbutton-sm",
-                        theme: "theme-Sbutton-generic-white",
-                    }}
-                    onClick={onClose}
-                    type="button"
-                    hasShadow
-                >
-                    Close
-                </MixinButton>
-            </MixinPanelSection>
-            <Divider />
-            <MixinPanelSection className="flex flex-col overflow-auto">
-                <CodeHighlighter code={props.code} />
-            </MixinPanelSection>
-        </MixinPanel>
-    );
-}
-
-function CodeExampleDialog(props: { title: string; code: string }) {
-    return (
-        <GlobalDialog
-            zIndex={10}
-            Trigger={({ onToggle }) => (
-                <MixinButton options={{ size: "mixin-Sbutton-sm", theme: "theme-Sbutton-generic-white" }} onClick={onToggle}>
-                    {props.title}
-                </MixinButton>
-            )}
-            Panel={CodeExamplePanel}
-            panelProps={props}
-        />
-    );
-}
-*/
+ 
 function PortfolioPage() {
     const ODS_TechStackSections = [
         {
             title: "Frontend",
-            buttons: ["React", "Tanstack Router", "React Query", "Tailwind"],
+            buttons: ["React", "Tanstack Router", "React Query", "Tailwind", "Common Interface for routers"],
         },
         {
             title: "Backend",
-            buttons: [".Net Core Web API", "MSSQL & SQLite", "EF Core", "xUnit"],
+            buttons: [".Net Core Web API", "MSSQL & SQLite", "EF Core", "xUnit", "Database Cross-Compatability"],
         },
         {
             title: "DevOps & Deployment",

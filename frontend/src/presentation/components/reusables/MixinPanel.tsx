@@ -1,7 +1,7 @@
 import { ElementType, PropsWithChildren, PropsWithRef } from "react";
 import PolymorphicProps from "../../types/PolymorphicProps";
 
-type THostElementProps = React.JSX.IntrinsicAttributes & PropsWithChildren<{ className: string }>;
+type THostElementProps = React.JSX.IntrinsicAttributes & { className: string };
 
 type MixinPanelProps = PropsWithRef<{
     options: {
@@ -10,22 +10,21 @@ type MixinPanelProps = PropsWithRef<{
     };
     hasShadow?: boolean;
     hasBorder?: boolean;
-    render: (props: THostElementProps) => React.ReactElement;
+    children: (props: THostElementProps) => React.ReactElement;
     className?: string;
 }>;
 
-export default function MixinPanel(props: PropsWithChildren<MixinPanelProps>) {
-    const { options, render, className = "", hasShadow = false, hasBorder = false, children } = props;
+export default function MixinPanel(props: MixinPanelProps) {
+    const { options, className = "", hasShadow = false, hasBorder = false, children } = props;
 
     const shadowClass = hasShadow ? "token-default-shadow" : "";
     const borderClass = hasBorder ? "border token-default-border-color" : "";
 
     const hostElementProps: THostElementProps = {
         className: ["mixin-panel-like", options.size, options.theme, shadowClass, borderClass, className].join(" "),
-        children: children,
     };
 
-    return render(hostElementProps);
+    return children(hostElementProps);
 }
 
 type MixinPanelSectionProps<E extends ElementType> = PolymorphicProps<E> & {};
