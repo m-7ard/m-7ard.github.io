@@ -15,7 +15,7 @@ function AboutMePage() {
                 <div className="flex flex-row gap-6 flex-wrap items-start">
                     <AboutMeCard
                         title="Backend Development"
-                        description="Proficient in .NET Core (Web API, MVC), Node.js, and Django REST Framework."
+                        description="Proficient in .NET Core (Web API, MVC), Node.js, and Django REST Framework. Experience building RESTful APIs and applications that fullfil real-world needs."
                         keywords={[".NET Core Web API", ".NET Core MVC", "Node.js", "Django", "Django Rest"]}
                     />
                     <AboutMeCard
