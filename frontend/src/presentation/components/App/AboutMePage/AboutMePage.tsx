@@ -6,7 +6,7 @@ function AboutMePage() {
             <section className="p-6 flex flex-col gap-6">
                 <div className="text-2xl font-bold">About Me</div>
                 <div>
-                    I am a dedicated and self-driven Full-Stack Developer from Spain with a strong foundation in modern web development and software engineering principles. My
+                    I am a dedicated and self-driven Full-Stack Developer with a strong foundation in modern web development and software principles. My
                     expertise spans a wide range of technologies, design paradigms, and best practices, making me a versatile and effective contributor to any development team.
                 </div>
             </section>
@@ -44,7 +44,7 @@ function AboutMePage() {
                         title="DevOps & Deployment"
                         description="Worked extensively with version control tools such as Git. Experience in containerizing applications using Docker for consistent and scalable deployment. Currently expanding my knowledge in cloud computing
                                 by pursuing Azure certifications (AZ-900 and AZ-204)."
-                        keywords={["Git", "Docker", "Containerization", "Azure", "Cloud"]}
+                        keywords={["Git", "Docker", "Gitlab CI/CD", "Containerization", "Azure", "Cloud"]}
                     />
                     <AboutMeCard
                         title="Educational Foundation"

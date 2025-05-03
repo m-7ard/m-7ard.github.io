@@ -47,11 +47,11 @@ function PortfolioPage() {
         },
         {
             title: "Backend",
-            buttons: [".Net Core Web API", "MSSQL & SQLite", "EF Core", "xUnit", "Database Cross-Compatability"],
+            buttons: [".Net Core Web API", "Django REST Auth Server", "File Server", "Private Node Proxy", "Public Caddy Proxy", "MSSQL & SQLite", "EF Core", "xUnit", "Database Cross-Compatability"],
         },
         {
             title: "DevOps & Deployment",
-            buttons: ["Docker", "Git"],
+            buttons: ["Docker", "Git", "Gitlab", "SSH"],
         },
     ];
 
@@ -62,11 +62,11 @@ function PortfolioPage() {
         },
         {
             title: "Backend",
-            buttons: ["Layered Architecture", "Domain Driven Design", "Value Objects", "Resusable Application Validation", "Unit Tests", "Integration Tests"],
+            buttons: ["Microservice", "Layered Architecture", "Domain Driven Design", "Value Objects", "Resusable Application Validation", "Unit Tests", "Integration Tests"],
         },
     ];
 
-    const Soccer_TechStackSections = [
+    const RealEstateListingStack = [
         {
             title: "Frontend",
             buttons: ["Angular", "RxJs", "Tailwind"],
@@ -81,7 +81,7 @@ function PortfolioPage() {
         },
     ];
 
-    const Soccer_TechnicalDetailsSections = [
+    const RealEstateListingDetailsSections = [
         {
             title: "Frontend",
             buttons: ["Data Access Layer", "HTTP Interceptors", "Route Guards", "Global Error Handling", "Shared API Models"],
@@ -121,8 +121,8 @@ function PortfolioPage() {
             </div>
             <div className="flex flex-col gap-6 p-6">
                 <section className="flex flex-col gap-2">
-                    <div className="text-2xl font-bold ">Soccer Team, Player & Match Manager</div>
-                    <a href="https://github.com/m-7ard/Angular-Node-Soccer-Manager" className="w-fit">
+                    <div className="text-2xl font-bold ">Real Estate Content Management System</div>
+                    <a href="https://github.com/m-7ard/Angular-Node__Real-Estate-Listings" className="w-fit">
                         <MixinButton
                             options={{
                                 size: "mixin-Sbutton-sm",
@@ -137,12 +137,12 @@ function PortfolioPage() {
                 </section>
                 <Divider />
                 <div className="text-base">
-                    The <span className="font-bold">Soccer Team, Player & Match Manager</span> is a full-stack application designed for managing soccer Teams, Players, Matches and
-                    Goals. It combines a Node.js backend which features its own depndency injection system together with Actions as endpoints; it uses an Angular frontend, making
+                    The <span className="font-bold">Real Estate CMS</span> is a full-stack application designed for managing Real Estate Listings & Clients. 
+                    It combines a Node.js backend which features its own depndency injection system together with Actions as endpoints; it uses an Angular frontend, making
                     full use of Angular's features such as interceptors and global error handlers, dynamic components, RxJs integration & more.
                 </div>
-                <TechGroup title="Tech Stack" sections={Soccer_TechStackSections} />
-                <TechGroup title="Technical Details" sections={Soccer_TechnicalDetailsSections} />
+                <TechGroup title="Tech Stack" sections={RealEstateListingStack} />
+                <TechGroup title="Technical Details" sections={RealEstateListingDetailsSections} />
             </div>
         </div>
     );
